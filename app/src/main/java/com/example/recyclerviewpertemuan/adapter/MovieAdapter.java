@@ -4,8 +4,11 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 import com.example.recyclerviewpertemuan.R;
 import com.example.recyclerviewpertemuan.model.MovieModel;
 import java.util.ArrayList;
@@ -15,6 +18,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
     List<MovieModel> listItem;
     TextView tvName,tvRating,tvJadwal;
     View view;
+    ImageView ivPoster;
 
     private Context ctx;
     private OnItemClickListener mOnItemClickListener;
@@ -48,9 +52,10 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
         tvName = holder.itemView.findViewById(R.id.txt_name_movie);
         tvJadwal = holder.itemView.findViewById(R.id.txt_jadwal);
         tvRating = holder.itemView.findViewById(R.id.txt_rating);
-        tvName.setText(item.getName());
-        tvRating.setText(item.getRating());
-        tvJadwal.setText(item.getJadwal());
+        ivPoster = holder.itemView.findViewById(R.id.img_movie);
+        tvName.setText(item.getTitle());
+        tvRating.setText(String.valueOf(item.getVoteAverage()));
+        tvJadwal.setText(item.getReleaseDate());
         holder.itemView.setOnClickListener(new
            View.OnClickListener() {
                @Override
@@ -58,6 +63,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
                    mOnItemClickListener.onClick(position);
                }
            });
+
+        Glide.with(ctx).load("https://image.tmdb.org/t/p/w200" + item.getPosterPath()).into(ivPoster);
     }
 
     @Override

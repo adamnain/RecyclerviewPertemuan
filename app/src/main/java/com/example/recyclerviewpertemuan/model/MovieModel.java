@@ -1,47 +1,106 @@
 package com.example.recyclerviewpertemuan.model;
 
-public class MovieModel {
-    String name;
-    String rating;
-    String jadwal;
-    String DesCription;
+import java.io.Serializable;
+import java.util.List;
+import com.google.gson.annotations.SerializedName;
 
-    public MovieModel(String name, String rating, String jadwal, String desCription) {
-        this.name = name;
-        this.rating = rating;
-        this.jadwal = jadwal;
-        DesCription = desCription;
+public class MovieModel implements Serializable {
+
+    @SerializedName("overview")
+    private String overview;
+
+    @SerializedName("original_language")
+    private String originalLanguage;
+
+    @SerializedName("original_title")
+    private String originalTitle;
+
+    @SerializedName("video")
+    private boolean video;
+
+    @SerializedName("title")
+    private String title;
+
+    @SerializedName("genre_ids")
+    private List<Integer> genreIds;
+
+    @SerializedName("poster_path")
+    private String posterPath;
+
+    @SerializedName("backdrop_path")
+    private String backdropPath;
+
+    @SerializedName("release_date")
+    private String releaseDate;
+
+    @SerializedName("popularity")
+    private double popularity;
+
+    @SerializedName("vote_average")
+    private double voteAverage;
+
+    @SerializedName("id")
+    private int id;
+
+    @SerializedName("adult")
+    private boolean adult;
+
+    @SerializedName("vote_count")
+    private int voteCount;
+
+    public String getOverview(){
+        return overview;
     }
 
-    public String getName() {
-        return name;
+    public String getOriginalLanguage(){
+        return originalLanguage;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getOriginalTitle(){
+        return originalTitle;
     }
 
-    public String getRating() {
-        return rating;
+    public boolean isVideo(){
+        return video;
     }
 
-    public void setRating(String rating) {
-        this.rating = rating;
+    public String getTitle(){
+        return title;
     }
 
-    public String getJadwal() {
-        return jadwal;
+    public List<Integer> getGenreIds(){
+        return genreIds;
     }
 
-    public void setJadwal(String jadwal) {
-        this.jadwal = jadwal;
+    public String getPosterPath(){
+        return posterPath;
     }
 
-    public String getDesCription() {
-        return DesCription;
+    public String getBackdropPath(){
+        return backdropPath;
     }
 
-    public void setDesCription(String desCription) {
-        DesCription = desCription;
+    public String getReleaseDate(){
+        return releaseDate;
+    }
+
+    public double getPopularity(){
+        return popularity;
+    }
+
+    public double getVoteAverage(){
+        return voteAverage;
+    }
+
+    public int getId(){
+        return id;
+    }
+
+    public boolean isAdult(){
+        return adult;
+    }
+
+    public int getVoteCount(){
+        return voteCount;
     }
 }
